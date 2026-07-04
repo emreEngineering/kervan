@@ -1,0 +1,17 @@
+.idea/
+*.iml
+kervan.iml
+task.md
+
+# İşletim Sistemi artıkları
+.DS_Store
+Thumbs.db
+
+# Go derleme çıktıları (genelde proje kökünde oluşuyorsa)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out

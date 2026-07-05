@@ -1,0 +1,57 @@
+// proto version
+syntax="proto3";
+
+// package name
+package inventory.v1;
+
+option go_package="kervan/gen/go/inventory/v1;inventoryv1";
+
+service InventoryService{
+
+    rpc GetStock(GetStockRequest) returns (GetStockResponse);
+
+    rpc ReserveStock(ReserveStockRequest) returns (ReserveStockResponse);
+
+    rpc ReleaseStock(ReleaseStockRequest) returns (ReleaseStockResponse);
+
+    rpc SetStock(SetStockRequest) returns (SetStockResponse);
+}
+
+// Get
+message GetStockRequest{
+  int64 product_id=1;
+}
+
+message GetStockResponse{
+  int32 available=1;
+}
+
+// Reserve
+message ReserveStockRequest{
+  int64 product_id=1;
+  int32 quantity=2;
+}
+
+message ReserveStockResponse{
+  bool success=1;
+}
+
+// Release
+message ReleaseStockRequest{
+  int64 product_id=1;
+  int32 quantity=2;
+}
+
+message ReleaseStockResponse{
+  bool success=1;
+}
+
+// Set
+message SetStockRequest{
+  int64 product_id=1;
+  int32 available=2;
+}
+
+message SetStockResponse{
+  bool success=1;
+}

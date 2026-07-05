@@ -1,0 +1,91 @@
+//proto version
+syntax = "proto3";
+
+// package name
+package product.v1;
+
+option go_package = "kervan/gen/go/product/v1;productv1";
+
+service ProductService{
+
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse);
+
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
+}
+
+message Product{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string category = 5;
+}
+
+// Create
+message CreateProductRequest{
+  string name = 1;
+  string description = 2;
+  double price = 3;
+  string category = 4;
+}
+
+message CreateProductResponse{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string category = 5;
+}
+
+// Get
+message GetProductRequest{
+  int64 id = 1;
+}
+
+message GetProductResponse{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string category = 5;
+}
+
+// List
+message ListProductsRequest{}
+
+message ListProductsResponse{
+  repeated Product products = 1;
+}
+
+// Update
+message UpdateProductRequest{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string category = 5;
+}
+
+message UpdateProductResponse{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  string category = 5;
+}
+
+// Delete
+message DeleteProductRequest{
+  int64 id = 1;
+}
+
+message DeleteProductResponse{
+  bool success = 1;
+}
+

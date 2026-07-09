@@ -4,7 +4,7 @@ syntax = "proto3";
 // package name
 package product.v1;
 
-option go_package = "kervan/gen/go/product/v1;productv1";
+option go_package = "github.com/emreEngineering/kervan/gen/go/product/v1;productv1";
 
 service ProductService{
 

@@ -746,7 +746,7 @@ const file_product_v1_product_proto_rawDesc = "" +
 	"GetProduct\x12\x1d.product.v1.GetProductRequest\x1a\x1e.product.v1.GetProductResponse\x12Q\n" +
 	"\fListProducts\x12\x1f.product.v1.ListProductsRequest\x1a .product.v1.ListProductsResponse\x12T\n" +
 	"\rUpdateProduct\x12 .product.v1.UpdateProductRequest\x1a!.product.v1.UpdateProductResponse\x12T\n" +
-	"\rDeleteProduct\x12 .product.v1.DeleteProductRequest\x1a!.product.v1.DeleteProductResponseB$Z\"kervan/gen/go/product/v1;productv1b\x06proto3"
+	"\rDeleteProduct\x12 .product.v1.DeleteProductRequest\x1a!.product.v1.DeleteProductResponseB?Z=github.com/emreEngineering/kervan/gen/go/product/v1;productv1b\x06proto3"
 
 var (
 	file_product_v1_product_proto_rawDescOnce sync.Once

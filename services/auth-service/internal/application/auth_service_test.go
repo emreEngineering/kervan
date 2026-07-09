@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/emreEngineering/kervan/service/auth-service/internal/domain"
+	"github.com/emreEngineering/kervan/services/auth-service/internal/domain"
 	"github.com/golang-jwt/jwt/v5"
 )
 

@@ -490,7 +490,7 @@ const file_cart_v1_cart_proto_rawDesc = "" +
 	"\aAddItem\x12\x17.cart.v1.AddItemRequest\x1a\x18.cart.v1.AddItemResponse\x12E\n" +
 	"\n" +
 	"RemoveItem\x12\x1a.cart.v1.RemoveItemRequest\x1a\x1b.cart.v1.RemoveItemResponse\x12B\n" +
-	"\tClearCart\x12\x19.cart.v1.ClearCartRequest\x1a\x1a.cart.v1.ClearCartResponseB\x1eZ\x1ckervan/gen/go/cart/v1;cartv1b\x06proto3"
+	"\tClearCart\x12\x19.cart.v1.ClearCartRequest\x1a\x1a.cart.v1.ClearCartResponseB9Z7github.com/emreEngineering/kervan/gen/go/cart/v1;cartv1b\x06proto3"
 
 var (
 	file_cart_v1_cart_proto_rawDescOnce sync.Once

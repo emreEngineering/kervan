@@ -5,8 +5,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/emreEngineering/kervan/service/auth-service/internal/domain"
-	"github.com/emreEngineering/kervan/service/auth-service/internal/ports"
+	"github.com/emreEngineering/kervan/services/auth-service/internal/domain"
+	"github.com/emreEngineering/kervan/services/auth-service/internal/ports"
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )

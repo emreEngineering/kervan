@@ -4,7 +4,7 @@ syntax = "proto3";
 // package name
 package auth.v1;
 
-option go_package = "kervan/gen/go/auth/v1;authv1";
+option go_package = "github.com/emreEngineering/kervan/gen/go/auth/v1;authv1";
 
 service AuthService{
 

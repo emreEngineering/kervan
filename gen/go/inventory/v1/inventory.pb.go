@@ -437,7 +437,7 @@ const file_inventory_v1_inventory_proto_rawDesc = "" +
 	"\bGetStock\x12\x1d.inventory.v1.GetStockRequest\x1a\x1e.inventory.v1.GetStockResponse\x12U\n" +
 	"\fReserveStock\x12!.inventory.v1.ReserveStockRequest\x1a\".inventory.v1.ReserveStockResponse\x12U\n" +
 	"\fReleaseStock\x12!.inventory.v1.ReleaseStockRequest\x1a\".inventory.v1.ReleaseStockResponse\x12I\n" +
-	"\bSetStock\x12\x1d.inventory.v1.SetStockRequest\x1a\x1e.inventory.v1.SetStockResponseB(Z&kervan/gen/go/inventory/v1;inventoryv1b\x06proto3"
+	"\bSetStock\x12\x1d.inventory.v1.SetStockRequest\x1a\x1e.inventory.v1.SetStockResponseBCZAgithub.com/emreEngineering/kervan/gen/go/inventory/v1;inventoryv1b\x06proto3"
 
 var (
 	file_inventory_v1_inventory_proto_rawDescOnce sync.Once

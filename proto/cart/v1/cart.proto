@@ -4,7 +4,7 @@ syntax = "proto3";
 package cart.v1;
 
 // package name
-option go_package = "kervan/gen/go/cart/v1;cartv1";
+option go_package = "github.com/emreEngineering/kervan/gen/go/cart/v1;cartv1";
 
 service CartService{
 

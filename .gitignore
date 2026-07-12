@@ -7,6 +7,9 @@ task.md
 .DS_Store
 Thumbs.db
 
+# Go modül cache'leri (deneme amaçlı oluşan)
+.gomodcache-*/
+
 # Go derleme çıktıları (genelde proje kökünde oluşuyorsa)
 *.exe
 *.exe~

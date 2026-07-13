@@ -5,4 +5,5 @@ use (
 	./gen/go
 	./services/auth-service
 	./services/product-service
+	./services/inventory-service
 )

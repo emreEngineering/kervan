@@ -6,4 +6,5 @@ use (
 	./services/auth-service
 	./services/product-service
 	./services/inventory-service
+	./services/cart-service
 )

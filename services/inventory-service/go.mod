@@ -5,7 +5,7 @@ go 1.26.2
 require (
 	github.com/emreEngineering/kervan/gen/go v0.0.0-20260712110955-77320e66aaea
 	github.com/lib/pq v1.12.3
-	google.golang.org/grpc v1.82.0
+	google.golang.org/grpc v1.82.1
 )
 
 require (

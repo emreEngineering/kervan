@@ -1,12 +1,10 @@
-module github.com/emreEngineering/kervan/services/auth-service
+module github.com/emreEngineering/kervan/services/order-service
 
 go 1.26.2
 
 require (
-	github.com/emreEngineering/kervan/gen/go v0.0.0-00010101000000-000000000000
-	github.com/golang-jwt/jwt/v5 v5.3.1
+	github.com/emreEngineering/kervan/gen/go v0.0.0-20260715141433-118fe518b1df
 	github.com/lib/pq v1.12.3
-	golang.org/x/crypto v0.53.0
 	google.golang.org/grpc v1.82.1
 )
 

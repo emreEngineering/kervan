@@ -2,12 +2,21 @@ package domain
 
 import "time"
 
+type OrderStatus string
+
+const (
+	OrderStatusPending   OrderStatus = "pending"
+	OrderStatusPaid      OrderStatus = "paid"
+	OrderStatusCancelled OrderStatus = "cancelled"
+	OrderStatusReturned  OrderStatus = "returned"
+)
+
 type Order struct {
 	ID          int64
 	UserID      int64
 	Items       []OrderItem
 	TotalAmount float64
-	Status      string
+	Status      OrderStatus
 	CreatedAt   time.Time
 }
 
@@ -26,14 +35,14 @@ func NewOrder(userID int64, items []OrderItem) *Order {
 		UserID:      userID,
 		Items:       items,
 		TotalAmount: total,
-		Status:      "pending",
+		Status:      OrderStatusPending,
 		CreatedAt:   time.Now(),
 	}
 }
 
 func (o *Order) MarkPaid() {
-	o.Status = "paid"
+	o.Status = OrderStatusPaid
 }
 func (o *Order) MarkCancelled() {
-	o.Status = "cancelled"
+	o.Status = OrderStatusCancelled
 }

@@ -89,15 +89,15 @@ func (s *OrderService) ReturnOrder(ctx context.Context, id int64) (*domain.Order
 	if err != nil {
 		return nil, err
 	}
-	if err == nil {
+	if order == nil {
 		return nil, errors.New("sipariş bulunamadı")
 	}
 
 	for _, item := range order.Items {
 		s.inventoryRepo.ReleaseStock(ctx, item.ProductID, item.Quantity)
 	}
-	order.Status = "returned"
-	if err := s.orderRepo.UpdateStatus(ctx, order.ID, "returned"); err != nil {
+	order.Status = domain.OrderStatusReturned
+	if err := s.orderRepo.UpdateStatus(ctx, order.ID, domain.OrderStatusReturned); err != nil {
 		return nil, err
 	}
 	return order, nil

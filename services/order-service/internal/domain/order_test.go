@@ -1,6 +1,8 @@
 package domain
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestNewOrder_Success(t *testing.T) {
 	items := []OrderItem{
@@ -15,7 +17,7 @@ func TestNewOrder_Success(t *testing.T) {
 	if order.TotalAmount != 200 {
 		t.Fatalf("beklenen TotalAmount=200, gerçek= %f", order.TotalAmount)
 	}
-	if order.Status != "pending" {
+	if order.Status != OrderStatusPending {
 		t.Fatalf("beklenen status=pending, gerçek= %s", order.Status)
 	}
 	if len(order.Items) != 2 {
@@ -37,7 +39,7 @@ func TestMarkPaid(t *testing.T) {
 	items := []OrderItem{{ProductID: 100, Quantity: 1, Price: 50}}
 	order := NewOrder(1, items)
 	order.MarkPaid()
-	if order.Status != "paid" {
+	if order.Status != OrderStatusPaid {
 		t.Fatalf("beklenen paid, gerçek= %s", order.Status)
 	}
 }
@@ -46,7 +48,7 @@ func TestMarkCancelled(t *testing.T) {
 	items := []OrderItem{{ProductID: 100, Quantity: 1, Price: 50}}
 	order := NewOrder(1, items)
 	order.MarkCancelled()
-	if order.Status != "cancelled" {
+	if order.Status != OrderStatusCancelled {
 		t.Fatalf("beklenen cancelled, gerçek= %s", order.Status)
 	}
 }

@@ -9,5 +9,5 @@ import (
 type OrderRepository interface {
 	Save(ctx context.Context, order *domain.Order) error
 	FindByID(ctx context.Context, id int64) (*domain.Order, error)
-	UpdateStatus(ctx context.Context, id int64, status string) error
+	UpdateStatus(ctx context.Context, id int64, status domain.OrderStatus) error
 }

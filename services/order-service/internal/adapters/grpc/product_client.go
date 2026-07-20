@@ -7,15 +7,15 @@ import (
 	"google.golang.org/grpc"
 )
 
-type PrductClient struct {
+type ProductClient struct {
 	client productv1.ProductServiceClient
 }
 
-func NewProductClient(conn *grpc.ClientConn) *PrductClient {
-	return &PrductClient{client: productv1.NewProductServiceClient(conn)}
+func NewProductClient(conn *grpc.ClientConn) *ProductClient {
+	return &ProductClient{client: productv1.NewProductServiceClient(conn)}
 }
 
-func (c *PrductClient) GetProductPrice(ctx context.Context, productID int64) (float64, error) {
+func (c *ProductClient) GetProductPrice(ctx context.Context, productID int64) (float64, error) {
 	resp, err := c.client.GetProduct(ctx, &productv1.GetProductRequest{Id: productID})
 	if err != nil {
 		return 0, err

@@ -26,11 +26,13 @@ func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 	token := extractToken(r)
 	if token == "" {
 		http.Error(w, "token gerekli", http.StatusUnauthorized)
+		return
 	}
 
 	order, err := h.app.CreateOrder(r.Context(), token)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")

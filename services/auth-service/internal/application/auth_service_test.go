@@ -144,9 +144,7 @@ func TestValidateToken_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("token doğrulama başarısız: %v", err)
 	}
-	if err != nil {
-		t.Fatalf("token doğrulama başarısız: %v", err)
-	}
+
 	// userID 0 olabilir çünkü fake repo ID atamaz
 	t.Logf("doğrulanan userID: %d", userID)
 }

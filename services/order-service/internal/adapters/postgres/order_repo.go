@@ -64,7 +64,7 @@ func (r *OrderRepo) FindByID(ctx context.Context, id int64) (*domain.Order, erro
 
 }
 
-func (r *OrderRepo) UpdateStatus(ctx context.Context, id int64, status string) error {
+func (r *OrderRepo) UpdateStatus(ctx context.Context, id int64, status domain.OrderStatus) error {
 	_, err := r.db.ExecContext(ctx, "UPDATE orders SET status=$1 WHERE id=$2", status, id)
 	return err
 }

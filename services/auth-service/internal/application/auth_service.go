@@ -79,7 +79,7 @@ func (s *AuthService) Login(ctx context.Context, email, password string) (string
 	// 4. JWT token üret
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"user_id": user.ID,
-		"exp":     time.Now().Add(24 * 365 * 10 * time.Hour).Unix()})
+		"exp":     time.Now().Add(1 * time.Hour).Unix()})
 	tokenString, err := token.SignedString(s.jwtSecret)
 	if err != nil {
 		return "", err

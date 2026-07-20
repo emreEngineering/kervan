@@ -13,10 +13,7 @@ type Cart struct {
 }
 
 func NewCart(userID int64) *Cart {
-	return &Cart{
-		UserID: userID,
-		Items:  []CartItem{},
-	}
+	return &Cart{UserID: userID}
 }
 
 func (c *Cart) AddItem(productID int64, quantity int32) error {

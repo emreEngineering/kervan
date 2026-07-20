@@ -90,7 +90,7 @@ func (f *fakeOrderRepo) FindByID(_ context.Context, id int64) (*domain.Order, er
 	return nil, nil
 }
 
-func (f *fakeOrderRepo) UpdateStatus(_ context.Context, id int64, status string) error {
+func (f *fakeOrderRepo) UpdateStatus(_ context.Context, id int64, status domain.OrderStatus) error {
 	for i, o := range f.records {
 		if o.ID == id {
 			f.records[i].Status = status
@@ -124,7 +124,7 @@ func TestCreateOrder_Succes(t *testing.T) {
 	if order.TotalAmount != 200 {
 		t.Fatalf("beklenen TotalAmount=200, gerçek=%f", order.TotalAmount)
 	}
-	if order.Status != "pending" {
+	if order.Status != domain.OrderStatusPending {
 		t.Fatalf("beklenen status=pending, gerçek=%s", order.Status)
 	}
 	if !cart.cleared {

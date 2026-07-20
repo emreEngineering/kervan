@@ -60,6 +60,10 @@ func (r *OrderRepo) FindByID(ctx context.Context, id int64) (*domain.Order, erro
 		}
 		order.Items = append(order.Items, item)
 	}
+	// döngü sırasında bağlantı koparsa veri yutulmasını önlemek için
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
 	return order, nil
 
 }

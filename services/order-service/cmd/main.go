@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"net/http"
 	"os"
 
 	_ "github.com/lib/pq"
@@ -15,7 +14,6 @@ import (
 
 	orderv1 "github.com/emreEngineering/kervan/gen/go/order/v1"
 	grpcclient "github.com/emreEngineering/kervan/services/order-service/internal/adapters/grpc"
-	httphandler "github.com/emreEngineering/kervan/services/order-service/internal/adapters/http"
 	"github.com/emreEngineering/kervan/services/order-service/internal/adapters/postgres"
 	"github.com/emreEngineering/kervan/services/order-service/internal/application"
 )
@@ -50,36 +48,19 @@ func main() {
 
 	orderRepo := postgres.NewOrderRepo(db)
 	orderApp := application.NewOrderService(authClient, cartClient, inventoryClient, productClient, orderRepo)
-	restHandler := httphandler.NewOrderHandler(orderApp)
 	grpcHandler := grpcclient.NewOrderHandler(orderApp)
 
-	// gRPC server
-	grpcLis, err := net.Listen("tcp", ":50055")
+	lis, err := net.Listen("tcp", ":50055")
 	if err != nil {
-		log.Fatalf("gRPC port dinlenemedi: %v", err)
-	}
-	grpcSrv := grpc.NewServer()
-	orderv1.RegisterOrderServiceServer(grpcSrv, grpcHandler)
-	reflection.Register(grpcSrv)
-	go func() {
-		fmt.Println("gRPC sunucusu :50055 portunda başlatıldı")
-		if err := grpcSrv.Serve(grpcLis); err != nil {
-			log.Fatalf("gRPC sunucu hatası: %v", err)
-		}
-	}()
-
-	// HTTP server
-	mux := http.NewServeMux()
-	mux.HandleFunc("/orders", restHandler.CreateOrder)
-	mux.HandleFunc("/orders/", restHandler.GetOrder)
-
-	httpLis, err := net.Listen("tcp", ":8080")
-	if err != nil {
-		log.Fatalf("HTTP port dinlenemedi: %v", err)
+		log.Fatalf("Port dinlenemedi: %v", err)
 	}
 
-	fmt.Println("REST sunucusu :8080 portunda başlatıldı")
-	if err := http.Serve(httpLis, mux); err != nil {
-		log.Fatalf("HTTP sunucu hatası: %v", err)
+	s := grpc.NewServer()
+	orderv1.RegisterOrderServiceServer(s, grpcHandler)
+	reflection.Register(s)
+
+	fmt.Println("gRPC sunucusu :50055 portunda başlatıldı")
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("Sunucu hatası: %v", err)
 	}
 }
